@@ -19,7 +19,6 @@ async function onSubmit(event) {
     const body = {
         artist: artistField.value,
         title: titleField.value,
-        date_added: new Date().toISOString().split("T")[0],
         url: tabs[0].url.split("&")[0]
     };
 
