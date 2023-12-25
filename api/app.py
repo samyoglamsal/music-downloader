@@ -1,7 +1,3 @@
-import os
-import io
-import mutagen
-
 from flask import Flask, request
 from flask_cors import CORS
 from yt_dlp import YoutubeDL
@@ -30,6 +26,3 @@ def download_song():
         error_code = ydl.download([url])
 
     return {"status": 200}
-
-def tag_song(song):
-    pass
