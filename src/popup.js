@@ -1,9 +1,9 @@
 window.addEventListener("load", () => {
-    let submitButton = document.getElementById("submit");
-    submitButton.addEventListener("click", onClick);
+    let form = document.getElementById("form");
+    form.addEventListener("submit", onSubmit);
 });
 
-async function onClick() {
+async function onSubmit() {
     const artist = document.getElementById("artist").value;
     const title = document.getElementById("title").value;
     const date_added = (new Date()).toISOString().split("T")[0];
