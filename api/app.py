@@ -1,3 +1,5 @@
+from mutagen.mp4 import MP4 
+
 from flask import Flask, request
 from flask_cors import CORS
 from yt_dlp import YoutubeDL
@@ -11,7 +13,6 @@ CORS(app)
 def download_song():
     artist = request.json["artist"]
     title = request.json["title"]
-    date_added = request.json["date_added"]
     url = request.json["url"]
 
     ydl_opts = {
@@ -25,4 +26,13 @@ def download_song():
     with YoutubeDL(ydl_opts) as ydl:
         error_code = ydl.download([url])
 
+    tag_song(f"{OUTPUT_DIR}/{artist} - {title}.m4a", request.json)
+
     return {"status": 200}
+
+def tag_song(path, tags):
+    file = MP4(path)
+    file["\xa9ART"] = tags["artist"]
+    file["\xa9nam"] = tags["title"]
+    file.save()
+

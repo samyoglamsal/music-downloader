@@ -12,5 +12,10 @@ A Firefox extension that downloads the current YouTube video as a .m4a file.
     1. Open Firefox and head to `about:debugging`.
     2. On the left hand side, click `This Firefox`.
     3. Click `Load Temporary Add-on` and click any file inside the cloned repository folder.
-3. Go to any YouTube video and then click on the extensions puzzle piece icon in the upper right hand corner.
-4. Select `Music Downloader` and enter the artist and title fields.
+3. Ensure you have sidebars enabled.
+    1. Click the three bars in the top right hand corner.
+    2. Select `More tools`.
+    3. Select `Customize toolbar`.
+    4. Drag the `Sidebars` option into your toolbar.
+3. Go to any YouTube video and then click on the sidebar button.
+5. Select `Music Downloader` from the dropdown menu and enter the appropriate fields.
