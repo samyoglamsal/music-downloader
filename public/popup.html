@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../src/popup.js"></script>
+    <link href="style.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
     <form id="form">
-        <label for="artist">Artist:</label>
-        <input id="artist" name="artist" type="text" required />
-    
-        <label for="title">Title:</label>
-        <input id="title" name="title" type="text" required />
+        <label id="artist-label" for="artist">Artist<p class="asterisk">*</p></label>
+        <input id="artist" name="artist" type="text" placeholder="Artist" required />
+
+        <label id="title-label" for="title">Title<p class="asterisk">*</p></label>
+        <input id="title" name="title" type="text" placeholder="Title" required />
     
         <button>Submit</button>
     </form>
