@@ -1,6 +1,7 @@
-from mutagen.mp4 import MP4 
+import json
 
-from flask import Flask, request
+from mutagen.mp4 import MP4 
+from flask import Flask, request, Response
 from flask_cors import CORS
 from yt_dlp import YoutubeDL
 
@@ -26,9 +27,12 @@ def download_song():
     with YoutubeDL(ydl_opts) as ydl:
         error_code = ydl.download([url])
 
-    tag_song(f"{OUTPUT_DIR}/{artist} - {title}.m4a", request.json)
+        if error_code == 0:
+            tag_song(f"{OUTPUT_DIR}/{artist} - {title}.m4a", request.json)
+        else:
+            return Response("Error: Unable to download the song.", 500)
 
-    return {"status": 200}
+    return Response("Success", 200)
 
 def tag_song(path, tags):
     file = MP4(path)
