@@ -1,0 +1,12 @@
+{
+    "output_template": "{output_directory}/{artist} - {title}.m4a",
+    "output_directory": "/mnt/c/Users/samyo/Desktop/songs",
+    "songfile_path": "songs.csv",
+    "ytdlp_opts": {
+        "format": "m4a/bestaudio/best",
+        "postprocessors": [{
+            "key": "FFmpegExtractAudio",
+            "preferredcodec": "m4a"
+        }]
+    }
+}
