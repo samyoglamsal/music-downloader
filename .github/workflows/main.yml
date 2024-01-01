@@ -10,7 +10,7 @@ jobs:
       - name: Checkout files
         uses: actions/checkout@v4
         with:
-          sparse_checkout: |
+          sparse-checkout: |
             src
             icons
             public
@@ -21,3 +21,5 @@ jobs:
 
       - name: Add to release
         run: gh release upload ${{ github.event.release.tag_name }} music_downloader.xpi
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
