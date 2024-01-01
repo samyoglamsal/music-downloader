@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout files
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
         with:
           sparse_checkout: |
             src
@@ -17,7 +17,7 @@ jobs:
             manifest.json
             
       - name: Create xpi
-      - run: zip -r music_downloader.xpi src icons public manifest.json
+        run: zip -r music_downloader.xpi src icons public manifest.json
 
       - name: Add to release
-      - run: gh release upload ${{ github.event.release.tag_name }} music_downloader.xpi
+        run: gh release upload ${{ github.event.release.tag_name }} music_downloader.xpi
