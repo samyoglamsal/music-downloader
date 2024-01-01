@@ -1,0 +1,23 @@
+name: create-extension
+on: 
+  release:
+    types:
+      - created
+jobs:
+  create-extension-xpi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout files
+      - uses: actions/checkout@v4
+        with:
+          sparse_checkout: |
+            src
+            icons
+            public
+            manifest.json
+            
+      - name: Create xpi
+      - run: zip -r music_downloader.xpi src icons public manifest.json
+
+      - name: Add to release
+      - run: gh release upload ${{ github.event.release.tag_name }} music_downloader.xpi
